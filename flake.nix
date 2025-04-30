@@ -63,6 +63,7 @@
             vulkan-utility-libraries
             nss
             libdrm
+            libudev-zero
             cups
             nspr
             glib
