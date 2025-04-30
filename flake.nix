@@ -18,11 +18,11 @@
         };
 
         installPhase = ''
-          mkdir -p $out/bin
-          install -m755 -D "X-Plane 12 Installer Linux" $out/bin/x-plane-12-installer
-					echo "export GIO_MODULE_DIR=${pkgs.glib-networking}/lib/gio/modules/" > $out/bin/start.sh
-					echo "~/X-Plane\\ 12/X-Plane-x86_64" >> $out/bin/start.sh
-					chmod +x $out/bin/start.sh
+                    mkdir -p $out/bin
+                    install -m755 -D "X-Plane 12 Installer Linux" $out/bin/x-plane-12-installer
+          					echo "export GIO_MODULE_DIR=${pkgs.glib-networking}/lib/gio/modules/" > $out/bin/start.sh
+          					echo "~/X-Plane\\ 12/X-Plane-x86_64" >> $out/bin/start.sh
+          					chmod +x $out/bin/start.sh
         '';
       };
       fhs = pkgs.buildFHSEnv {
@@ -40,15 +40,22 @@
             xorg.libXcomposite
             xorg.libXdamage
             xorg.libXfixes
-						xorg.libxcb
+            xorg.libSM
+            xorg.libICE
+            xorg.libxcb
+            xorg.xcbutil
+            xorg.xcbutilwm
+            xorg.xcbutilimage
+            xorg.xcbutilkeysyms
+            xorg.xcbutilrenderutil
             xorg.fontutil
             xorg.fontalias
-						libxkbcommon
-						libgbm
-						expat
-						alsa-lib
-						libz
-						curl
+            libxkbcommon
+            libgbm
+            expat
+            alsa-lib
+            libz
+            curl
             vulkan-tools
             vulkan-loader
             vulkan-helper
@@ -69,10 +76,15 @@
             gtk3
             harfbuzz
             dbus
-						webkitgtk_4_1
-						libressl
-						openssl
-						glib-networking
+            webkitgtk_4_1
+            libressl
+            openssl
+            glib-networking
+            fuse
+            pulseaudio
+            freetype
+            fontconfig
+            xcb-util-cursor
           ];
       };
     in {
