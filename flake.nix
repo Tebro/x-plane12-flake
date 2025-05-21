@@ -88,6 +88,7 @@
           fontconfig
           xcb-util-cursor
           jdk8
+          openal
         ];
     };
   in {
